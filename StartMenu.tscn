@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/background-elements-redux/Backgrounds/backgroundEmpty.png" type="Texture" id=2]
+
+[node name="Start Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 432.0
+margin_top = 269.0
+margin_right = 591.0
+margin_bottom = 331.0
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 159.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.00392157, 0.0901961, 1, 1 )
+text = "Project 7 - 2D Platformer"
+
+[node name="Start Game" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 0.52549, 1, 0.898039, 1 )
+margin_top = 18.0
+margin_right = 159.0
+margin_bottom = 38.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit Game" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 0.52549, 1, 0.898039, 1 )
+margin_top = 42.0
+margin_right = 159.0
+margin_bottom = 62.0
+text = "Quit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 512, 128 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start Game" to="." method="_on_Start_Game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit Game" to="." method="_on_Quit_Game_pressed"]
